@@ -8,7 +8,7 @@ add_subdirectory(lib/googletest)
 
 find_package(CGAL REQUIRED)
 
-add_library(lart_common SHARED src/Cone.cpp src/Path.cpp src/Point.cpp src/State.cpp)
+add_library(lart_common SHARED src/Cone.cpp src/Path.cpp src/Point.cpp src/State.cpp src/Point3D.cpp)
 target_link_libraries(lart_common ${CGAL_LIBRARIES})
 
 add_executable(test test/GeometricTests.cpp test/PathTests.cpp)
