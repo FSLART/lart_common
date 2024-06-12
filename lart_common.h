@@ -27,9 +27,9 @@
 #define TRANSMISSION_RATIO 4.0f
 
 // Meters per second to engine revolutions per minute
-#define MS_TO_RPM(ms) (TRANSMISSION_RATIO * (MS / TIRE_PERIMETER_M) * 60.0)
+#define MS_TO_RPM(ms) (TRANSMISSION_RATIO * (ms / TIRE_PERIMETER_M) * 60.0)
 
 // Engine revolutions per minute to meters per second
-#define RPM_TO_MS(rpm) (TIRE_PERIMETER_M * (rmp / TRANSMISSION_RATIO / 60.0))
+#define RPM_TO_MS(rpm) (TIRE_PERIMETER_M * (rpm / TRANSMISSION_RATIO / 60.0))
 
 # endif  // LART_COMMON_H_
