@@ -3,13 +3,19 @@
 
 #include <math.h>
 
+#define __LART_T24__ // BE AWARE TO REMOVE THIS HARDCODE IN FUTURE VEHICLES
+
 // --- DYNAMICS CONVERSIONS ---
+
+#ifdef __LART_T24__
 
 // The radius of the tire in meters
 #define TIRE_RADIUS_M 0.255f
 
 // The number of pulses per revolution
 #define PULSES_PER_REVOLUTION 37
+
+#endif
 
 // The diameter of the tire in meters
 #define TIRE_PERIMETER_M (2 * M_PI * TIRE_RADIUS_M)
@@ -23,8 +29,12 @@
 
 // --- POWERTRAIN CONVERSIONS ---
 
+#ifdef __LART_T24__
+
 // Transmission ratio
 #define TRANSMISSION_RATIO 4.0f
+
+#endif
 
 // Meters per second to engine revolutions per minute
 #define MS_TO_RPM(ms) (TRANSMISSION_RATIO * (ms / TIRE_PERIMETER_M) * 60.0)
