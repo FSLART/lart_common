@@ -15,7 +15,19 @@
 // The number of pulses per revolution
 #define PULSES_PER_REVOLUTION 37
 
+// TODO: The steering ratio
+#define STEERING_RATIO 16.0f
+
+// The maximum steering angle in radians
+#define MAX_STEERING_ANGLE_RAD M_PI
+
 #endif
+
+// Convert radians to degrees
+#define RAD_TO_DEG(rad) (rad * 180.0 / M_PI)
+
+// Convert degrees to radians
+#define DEG_TO_RAD(deg) (deg * M_PI / 180.0)
 
 // The diameter of the tire in meters
 #define TIRE_PERIMETER_M (2 * M_PI * TIRE_RADIUS_M)
@@ -26,6 +38,11 @@
 // Convert the pulse count difference to traveled distance in meters
 #define PULSE_DIFF_TO_DISTANCE_M(pulse_diff) (pulse_diff * METERS_PER_PULSE)
 
+// Convert radians steering angle to degree steering wheel angle
+#define RAD_ST_ANGLE_TO_DEG_SW_ANGLE(st) (STEERING_RATIO * RAD_TO_DEG(st))
+
+// Convert degree steering wheel angle to radians steering angle
+#define DEG_SW_ANGLE_TO_RAD_ST_ANGLE(sw) (DEG_TO_RAD(sw) / STEERING_RATIO)
 
 // --- POWERTRAIN CONVERSIONS ---
 
