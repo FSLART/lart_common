@@ -15,11 +15,11 @@
 // The number of pulses per revolution
 #define PULSES_PER_REVOLUTION 37
 
-// TODO: The steering ratio
-#define STEERING_RATIO 16.0f
+// Ratio between steering wheel angle and steering angle
+#define STEERING_RATIO 4.57
 
-// The maximum steering angle in radians
-#define MAX_STEERING_ANGLE_RAD M_PI
+// The maximum steering angle in degrees
+#define MAX_STEERING_ANGLE_DEG 105
 
 #endif
 
@@ -43,6 +43,17 @@
 
 // Convert degree steering wheel angle to radians steering angle
 #define DEG_SW_ANGLE_TO_RAD_ST_ANGLE(sw) (DEG_TO_RAD(sw) / STEERING_RATIO)
+
+// Convert radians steering angle to turn percent
+#define RAD_ST_ANGLE_TO_TURN_PERCENT(st) (st / 2 * M_PI)
+
+// --- ACTUATION CONVERSIONS ---
+
+// Number of steering actuator encoder units per turn (360º rotation)
+#define ST_ENCODER_UNITS_PER_TURN 3375104
+
+// Convert radians steering angle to actuator position
+#define RAD_ST_ANGLE_TO_ACTUATOR_POS(st) (RAD_ST_ANGLE_TO_TURN_PERCENT(st) * ST_ENCODER_UNITS_PER_TURN)
 
 // --- POWERTRAIN CONVERSIONS ---
 
