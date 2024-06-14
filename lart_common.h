@@ -21,6 +21,9 @@
 // The maximum steering angle in degrees
 #define MAX_STEERING_ANGLE_DEG 105
 
+// The maximum steering angle in radians
+#define MAX_STEERING_ANGLE_RAD (DEG_TO_RAD(MAX_STEERING_ANGLE_DEG))
+
 #endif
 
 // Convert radians to degrees
@@ -45,7 +48,7 @@
 #define DEG_SW_ANGLE_TO_RAD_ST_ANGLE(sw) (DEG_TO_RAD(sw) / STEERING_RATIO)
 
 // Convert radians steering angle to turn percent
-#define RAD_ST_ANGLE_TO_TURN_PERCENT(st) (st / 2 * M_PI)
+#define RAD_ST_ANGLE_TO_TURN_PERCENT(st) (st / (2 * M_PI))
 
 // --- ACTUATION CONVERSIONS ---
 
@@ -53,7 +56,7 @@
 #define ST_ENCODER_UNITS_PER_TURN 3375104
 
 // Convert radians steering angle to actuator position
-#define RAD_ST_ANGLE_TO_ACTUATOR_POS(st) (RAD_ST_ANGLE_TO_TURN_PERCENT(st) * ST_ENCODER_UNITS_PER_TURN)
+#define RAD_ST_ANGLE_TO_ACTUATOR_POS(st) (int) (RAD_ST_ANGLE_TO_TURN_PERCENT(st) * ST_ENCODER_UNITS_PER_TURN)
 
 // --- POWERTRAIN CONVERSIONS ---
 
