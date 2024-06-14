@@ -3,7 +3,7 @@
 
 #define __LART_T24__ // BE AWARE TO REMOVE THIS HARDCODE IN FUTURE VEHICLES
 
-#define M_PI 3.14159265358979323846
+#define LART_PI 3.14159265358979323846
 
 // --- DYNAMICS CONVERSIONS ---
 
@@ -27,13 +27,13 @@
 #endif
 
 // Convert radians to degrees
-#define RAD_TO_DEG(rad) ((rad * 180.0) / M_PI)
+#define RAD_TO_DEG(rad) ((rad * 180.0) / LART_PI)
 
 // Convert degrees to radians
-#define DEG_TO_RAD(deg) ((deg * M_PI) / 180.0)
+#define DEG_TO_RAD(deg) ((deg * LART_PI) / 180.0)
 
 // The diameter of the tire in meters
-#define TIRE_PERIMETER_M (2 * M_PI * TIRE_RADIUS_M)
+#define TIRE_PERIMETER_M (2 * LART_PI * TIRE_RADIUS_M)
 
 // The distance traveled by pulse
 #define METERS_PER_PULSE (TIRE_PERIMETER_M / PULSES_PER_REVOLUTION)
@@ -54,7 +54,7 @@
 #define DEG_SW_ANGLE_TO_RAD_ST_ANGLE(sw) (DEG_TO_RAD(sw) / STEERING_RATIO)
 
 // Convert radians steering angle to turn percent
-#define RAD_ST_ANGLE_TO_TURN_PERCENT(st) (st / (2 * M_PI))
+#define RAD_ST_ANGLE_TO_TURN_PERCENT(st) (st / (2 * LART_PI))
 
 // Convert degrees steering angle to turn percent
 #define DEG_ST_ANGLE_TO_TURN_PERCENT(st) (st / 360.0)
