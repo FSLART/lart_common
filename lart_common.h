@@ -1,9 +1,9 @@
 #ifndef LART_COMMON_H_
 #define LART_COMMON_H_
 
-#include <math.h>
-
 #define __LART_T24__ // BE AWARE TO REMOVE THIS HARDCODE IN FUTURE VEHICLES
+
+#define M_PI 3.14159265358979323846
 
 // --- DYNAMICS CONVERSIONS ---
 
