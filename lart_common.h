@@ -27,10 +27,10 @@
 #endif
 
 // Convert radians to degrees
-#define RAD_TO_DEG(rad) (rad * 180.0 / M_PI)
+#define RAD_TO_DEG(rad) ((rad * 180.0) / M_PI)
 
 // Convert degrees to radians
-#define DEG_TO_RAD(deg) (deg * M_PI / 180.0)
+#define DEG_TO_RAD(deg) ((deg * M_PI) / 180.0)
 
 // The diameter of the tire in meters
 #define TIRE_PERIMETER_M (2 * M_PI * TIRE_RADIUS_M)
@@ -55,8 +55,11 @@
 // Number of steering actuator encoder units per turn (360º rotation)
 #define ST_ENCODER_UNITS_PER_TURN 3375104
 
-// Convert radians steering angle to actuator position
-#define RAD_ST_ANGLE_TO_ACTUATOR_POS(st) (int) (RAD_ST_ANGLE_TO_TURN_PERCENT(st) * ST_ENCODER_UNITS_PER_TURN)
+// Steering actuator offset/home. Usually zero, unless not configured in the controller.
+#define ST_ENCODER_OFFSET 0
+
+// Convert radians steering angle to actuator position.
+#define RAD_ST_ANGLE_TO_ACTUATOR_POS(st) (int) (RAD_ST_ANGLE_TO_TURN_PERCENT(st) * ST_ENCODER_UNITS_PER_TURN) + ST_ENCODER_OFFSET
 
 // --- POWERTRAIN CONVERSIONS ---
 
