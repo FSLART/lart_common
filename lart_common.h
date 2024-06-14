@@ -52,11 +52,15 @@
 
 // --- ACTUATION CONVERSIONS ---
 
+#ifdef __LART_T24__
+
 // Number of steering actuator encoder units per turn (360º rotation)
 #define ST_ENCODER_UNITS_PER_TURN 3375104
 
 // Steering actuator offset/home. Usually zero, unless not configured in the controller.
 #define ST_ENCODER_OFFSET 0
+
+#endif
 
 // Convert radians steering angle to actuator position.
 #define RAD_ST_ANGLE_TO_ACTUATOR_POS(st) (int) (RAD_ST_ANGLE_TO_TURN_PERCENT(st) * ST_ENCODER_UNITS_PER_TURN) + ST_ENCODER_OFFSET
