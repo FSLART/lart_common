@@ -41,14 +41,23 @@
 // Convert the pulse count difference to traveled distance in meters
 #define PULSE_DIFF_TO_DISTANCE_M(pulse_diff) (pulse_diff * METERS_PER_PULSE)
 
-// Convert radians steering angle to degree steering wheel angle
+// Convert steering wheel angle to steering angle (wheels) (unit agnostic)
+#define SW_ANGLE_TO_ST_ANGLE(sw) (sw / STEERING_RATIO)
+
+// Convert steering angle (wheels) to steering wheel angle (unit agnostic)
+#define ST_ANGLE_TO_SW_ANGLE(st) (st * STEERING_RATIO)
+
+// Convert radians steering angle (wheels) to degree steering wheel angle
 #define RAD_ST_ANGLE_TO_DEG_SW_ANGLE(st) (STEERING_RATIO * RAD_TO_DEG(st))
 
-// Convert degree steering wheel angle to radians steering angle
+// Convert degree steering wheel angle to radians steering angle (wheels)
 #define DEG_SW_ANGLE_TO_RAD_ST_ANGLE(sw) (DEG_TO_RAD(sw) / STEERING_RATIO)
 
 // Convert radians steering angle to turn percent
 #define RAD_ST_ANGLE_TO_TURN_PERCENT(st) (st / (2 * M_PI))
+
+// Convert degrees steering angle to turn percent
+#define DEG_ST_ANGLE_TO_TURN_PERCENT(st) (st / 360.0)
 
 // --- ACTUATION CONVERSIONS ---
 
@@ -62,8 +71,11 @@
 
 #endif
 
-// Convert radians steering angle to actuator position.
-#define RAD_ST_ANGLE_TO_ACTUATOR_POS(st) (int) (RAD_ST_ANGLE_TO_TURN_PERCENT(st) * ST_ENCODER_UNITS_PER_TURN) + ST_ENCODER_OFFSET
+// Convert radians steering wheel angle to actuator position.
+#define RAD_SW_ANGLE_TO_ACTUATOR_POS(st) (int) ((RAD_ST_ANGLE_TO_TURN_PERCENT(st) * ST_ENCODER_UNITS_PER_TURN) + ST_ENCODER_OFFSET)
+
+// Convert radians steering angle (wheels) to actuator position.
+#define RAD_ST_ANGLE_TO_ACTUATOR_POS(st) (RAD_SW_ANGLE_TO_ACTUATOR_POS(ST_ANGLE_TO_SW_ANGLE(st)))
 
 // --- POWERTRAIN CONVERSIONS ---
 
