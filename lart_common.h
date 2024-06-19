@@ -92,4 +92,12 @@
 // Engine revolutions per minute to meters per second
 #define RPM_TO_MS(rpm) (TIRE_PERIMETER_M * (rpm / TRANSMISSION_RATIO / 60.0))
 
+// Cone types
+#define CONE_UNKNOWN_TYPE 0
+#define CONE_YELLOW_TYPE 1
+#define CONE_BLUE_TYPE 2
+#define CONE_SMALL_ORANGE_TYPE 3
+#define CONE_LARGE_ORANGE_TYPE 4
+
+
 # endif  // LART_COMMON_H_
