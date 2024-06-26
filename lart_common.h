@@ -12,6 +12,9 @@
 // The radius of the tire in meters
 #define TIRE_RADIUS_M 0.255f
 
+// The wheelbase in meters
+#define WHEELBASE_M 1.550f
+
 // The number of pulses per revolution
 #define PULSES_PER_REVOLUTION 37
 
