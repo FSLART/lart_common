@@ -16,7 +16,7 @@
 #define WHEELBASE_M 1.550f
 
 // The number of pulses per revolution
-#define PULSES_PER_REVOLUTION 37
+#define WHEEL_SPROCKET_PULSES_PER_REVOLUTION 37
 
 // Ratio between steering wheel angle and steering angle
 #define STEERING_RATIO 4.57
