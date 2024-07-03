@@ -70,7 +70,7 @@
 #ifdef __LART_T24__
 
 // Number of steering actuator encoder units per turn (360º rotation)
-#define ST_ENCODER_UNITS_PER_TURN 3375104
+#define ST_ENCODER_UNITS_PER_TURN 1687552
 
 // Steering actuator offset/home. Usually zero, unless not configured in the controller.
 #define ST_ENCODER_OFFSET 0
@@ -82,6 +82,9 @@
 
 // Convert radians steering angle (wheels) to actuator position.
 #define RAD_ST_ANGLE_TO_ACTUATOR_POS(st) (RAD_SW_ANGLE_TO_ACTUATOR_POS(ST_ANGLE_TO_SW_ANGLE(st)))
+
+// Convrt encoder units to steering wheel angle
+#define ACTUATOR_POS_TO_SW_ANGLE(actUnits) ((360.0 * actUnits) / ST_ENCODER_UNITS_PER_TURN)
 
 // --- POWERTRAIN CONVERSIONS ---
 
