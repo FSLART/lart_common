@@ -27,6 +27,9 @@
 // The maximum steering angle in radians
 #define MAX_STEERING_ANGLE_RAD (DEG_TO_RAD(MAX_STEERING_ANGLE_DEG))
 
+// Suspension Travel distance in mm
+#define SUSPENSION_TRAVEL_MM 500
+
 #endif
 
 // Convert radians to degrees
