@@ -42,7 +42,7 @@
 #define TIRE_PERIMETER_M (2 * LART_PI * TIRE_RADIUS_M)
 
 // The distance traveled by pulse
-#define METERS_PER_PULSE (TIRE_PERIMETER_M / PULSES_PER_REVOLUTION)
+#define METERS_PER_PULSE (TIRE_PERIMETER_M / WHEEL_SPROCKET_PULSES_PER_REVOLUTION)
 
 // Convert the pulse count difference to traveled distance in meters
 #define PULSE_DIFF_TO_DISTANCE_M(pulse_diff) (pulse_diff * METERS_PER_PULSE)
