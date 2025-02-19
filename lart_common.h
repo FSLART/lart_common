@@ -21,11 +21,14 @@
 // Ratio between steering wheel angle and steering angle
 #define STEERING_RATIO 4.57
 
-// The maximum steering angle in degrees
-#define MAX_STEERING_ANGLE_DEG 78
+// The maximum steering wheel angle in degrees
+#define MAX_STEERING_ANGLE_DEG 105
 
-// The maximum steering angle in radians
+// The maximum steering wheel angle in radians
 #define MAX_STEERING_ANGLE_RAD (DEG_TO_RAD(MAX_STEERING_ANGLE_DEG))
+
+// The maximum wheel angle the car is able to do in autonomous mode
+#define MAX_WHEEL_ANGLE_RAD DEG_TO_RAD(24)
 
 // Suspension Travel distance in mm
 #define SUSPENSION_TRAVEL_MM 500
@@ -77,14 +80,23 @@
 
 #endif
 
+// Convert radians steering angle to atuator position with variable ratio
+#define RAD_ST_TO_MAXON_POS_WITH_RATIO(st,ratio) (DEG_SW_TO_ACTUATOR_POS(ratio * RAD_TO_DEG(st)))
+
 // Convert radians steering wheel angle to actuator position.
 #define RAD_SW_ANGLE_TO_ACTUATOR_POS(st) (int) ((RAD_ST_ANGLE_TO_TURN_PERCENT(st) * ST_ENCODER_UNITS_PER_TURN) + ST_ENCODER_OFFSET)
 
 // Convert radians steering angle (wheels) to actuator position.
 #define RAD_ST_ANGLE_TO_ACTUATOR_POS(st) (RAD_SW_ANGLE_TO_ACTUATOR_POS(ST_ANGLE_TO_SW_ANGLE(st)))
 
-// Convrt encoder units to steering wheel angle
+// Convert encoder units to steering wheel angle
 #define ACTUATOR_POS_TO_SW_ANGLE(actUnits) ((360.0 * actUnits) / ST_ENCODER_UNITS_PER_TURN)
+
+// Convert steering wheel degrees to actuator pos
+#define DEG_SW_TO_ACTUATOR_POS(sw) ((ST_ENCODER_UNITS_PER_TURN * sw) / 360)
+
+//Get an aproximate steering ratio for given steering angle
+#define STEERING_ANGLE_TO_RATIO(st) ((-0.0776042*st)+7.26123)
 
 // --- POWERTRAIN CONVERSIONS ---
 
