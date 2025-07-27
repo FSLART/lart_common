@@ -28,7 +28,7 @@
 #define MAX_STEERING_ANGLE_RAD (DEG_TO_RAD(MAX_STEERING_ANGLE_DEG))
 
 // The maximum wheel angle the car is able to do in autonomous mode
-#define MAX_WHEEL_ANGLE_RAD DEG_TO_RAD(24)
+#define MAX_WHEEL_ANGLE_RAD (DEG_TO_RAD(24))
 
 // Suspension Travel distance in mm
 #define SUSPENSION_TRAVEL_MM 500
