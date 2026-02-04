@@ -15,9 +15,6 @@
 // The wheelbase in meters
 #define WHEELBASE_M 1.550f
 
-// The number of pulses per revolution
-#define WHEEL_SPROCKET_PULSES_PER_REVOLUTION 20
-
 // Ratio between steering wheel angle and steering angle
 #define STEERING_RATIO 4.57
 
@@ -30,7 +27,6 @@
 // The maximum wheel angle the car is able to do in autonomous mode
 #define MAX_WHEEL_ANGLE_RAD (DEG_TO_RAD(24))
 
-
 #endif
 
 // Convert radians to degrees
@@ -42,59 +38,13 @@
 // The diameter of the tire in meters
 #define TIRE_PERIMETER_M (2 * LART_PI * TIRE_RADIUS_M)
 
-// The distance traveled by pulse
-#define METERS_PER_PULSE (TIRE_PERIMETER_M / WHEEL_SPROCKET_PULSES_PER_REVOLUTION)
-
-// Convert the pulse count difference to traveled distance in meters
-#define PULSE_DIFF_TO_DISTANCE_M(pulse_diff) (pulse_diff * METERS_PER_PULSE)
-
-// Convert steering wheel angle to steering angle (wheels) (unit agnostic)
-#define SW_ANGLE_TO_ST_ANGLE(sw) (sw / STEERING_RATIO)
-
-// Convert steering angle (wheels) to steering wheel angle (unit agnostic)
-#define ST_ANGLE_TO_SW_ANGLE(st) (st * STEERING_RATIO)
-
-// Convert radians steering angle (wheels) to degree steering wheel angle
-#define RAD_ST_ANGLE_TO_DEG_SW_ANGLE(st) (STEERING_RATIO * RAD_TO_DEG(st))
-
-// Convert degree steering wheel angle to radians steering angle (wheels)
-#define DEG_SW_ANGLE_TO_RAD_ST_ANGLE(sw) (DEG_TO_RAD(sw) / STEERING_RATIO)
-
-// Convert radians steering angle to turn percent
-#define RAD_ST_ANGLE_TO_TURN_PERCENT(st) (st / (2 * LART_PI))
-
-// Convert degrees steering angle to turn percent
-#define DEG_ST_ANGLE_TO_TURN_PERCENT(st) (st / 360.0)
-
 // --- ACTUATION CONVERSIONS ---
 
-#ifdef __LART_T26__
+// Convert steering angle in radians to actuator angle in degrees using variable ratio (direct use from control to bridge)
+#define RAD_ST_TO_DEG_ACTUATOR_WITH_RATIO(st,ratio) (ratio * RAD_TO_DEG(st))
 
-// Number of steering actuator encoder units per turn (360º rotation)
-#define ST_ENCODER_UNITS_PER_TURN 1687552
-
-// Steering actuator offset/home. Usually zero, unless not configured in the controller.
-#define ST_ENCODER_OFFSET 0
-
-#endif
-
-// Convert radians steering angle to atuator position with variable ratio
-#define RAD_ST_TO_MAXON_POS_WITH_RATIO(st,ratio) (DEG_SW_TO_ACTUATOR_POS(ratio * RAD_TO_DEG(st)))
-
-// Convert radians steering wheel angle to actuator position.
-#define RAD_SW_ANGLE_TO_ACTUATOR_POS(st) (int) ((RAD_ST_ANGLE_TO_TURN_PERCENT(st) * ST_ENCODER_UNITS_PER_TURN) + ST_ENCODER_OFFSET)
-
-// Convert radians steering angle (wheels) to actuator position.
-#define RAD_ST_ANGLE_TO_ACTUATOR_POS(st) (RAD_SW_ANGLE_TO_ACTUATOR_POS(ST_ANGLE_TO_SW_ANGLE(st)))
-
-// Convert encoder units to steering wheel angle
-#define ACTUATOR_POS_TO_SW_ANGLE(actUnits) ((360.0 * actUnits) / ST_ENCODER_UNITS_PER_TURN)
-
-// Convert steering wheel degrees to actuator pos
-#define DEG_SW_TO_ACTUATOR_POS(sw) ((ST_ENCODER_UNITS_PER_TURN * sw) / 360)
-
-//Get an aproximate steering ratio for given steering angle
-#define STEERING_ANGLE_TO_RATIO(st) ((-0.0776042*st)+7.26123)
+// Convert actuator angle in degrees to steering angle in radians using variable ratio (direct use from bridge to control)
+#define DEG_ACTUATOR_TO_RAD_ST_WITH_RATIO(act, ratio) (DEG_TO_RAD(act / ratio))
 
 // --- POWERTRAIN CONVERSIONS ---
 
@@ -110,6 +60,9 @@
 
 // Engine revolutions per minute to meters per second
 #define RPM_TO_MS(rpm) (TIRE_PERIMETER_M * (rpm / TRANSMISSION_RATIO / 60.0))
+
+#define MS_TO_KMH(ms) (ms * 3.6)
+#define KMH_TO_MS(kmh) (kmh / 3.6)
 
 // Cone types
 #define CONE_UNKNOWN_TYPE 0
