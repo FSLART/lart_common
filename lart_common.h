@@ -1,28 +1,28 @@
 #ifndef LART_COMMON_H_
 #define LART_COMMON_H_
 
-#define __LART_T24__ // BE AWARE TO REMOVE THIS HARDCODE IN FUTURE VEHICLES
+#define __LART_T26__ // BE AWARE TO REMOVE THIS HARDCODE IN FUTURE VEHICLES
 
 #define LART_PI 3.14159265358979323846
 
 // --- DYNAMICS CONVERSIONS ---
 
-#ifdef __LART_T24__
+#ifdef __LART_T26__
 
 // The radius of the tire in meters
-#define TIRE_RADIUS_M 0.255f
+#define TIRE_RADIUS_M 0.2032f
 
 // The wheelbase in meters
 #define WHEELBASE_M 1.550f
 
 // The number of pulses per revolution
-#define WHEEL_SPROCKET_PULSES_PER_REVOLUTION 37
+#define WHEEL_SPROCKET_PULSES_PER_REVOLUTION 20
 
 // Ratio between steering wheel angle and steering angle
 #define STEERING_RATIO 4.57
 
 // The maximum steering wheel angle in degrees
-#define MAX_STEERING_ANGLE_DEG 105
+#define MAX_STEERING_ANGLE_DEG 105 //TBD
 
 // The maximum steering wheel angle in radians
 #define MAX_STEERING_ANGLE_RAD (DEG_TO_RAD(MAX_STEERING_ANGLE_DEG))
@@ -30,8 +30,6 @@
 // The maximum wheel angle the car is able to do in autonomous mode
 #define MAX_WHEEL_ANGLE_RAD (DEG_TO_RAD(24))
 
-// Suspension Travel distance in mm
-#define SUSPENSION_TRAVEL_MM 500
 
 #endif
 
@@ -70,7 +68,7 @@
 
 // --- ACTUATION CONVERSIONS ---
 
-#ifdef __LART_T24__
+#ifdef __LART_T26__
 
 // Number of steering actuator encoder units per turn (360º rotation)
 #define ST_ENCODER_UNITS_PER_TURN 1687552
@@ -100,7 +98,7 @@
 
 // --- POWERTRAIN CONVERSIONS ---
 
-#ifdef __LART_T24__
+#ifdef __LART_T26__
 
 // Transmission ratio
 #define TRANSMISSION_RATIO 4.0f
