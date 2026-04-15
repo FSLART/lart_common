@@ -7,7 +7,7 @@
 #define TOPIC_CONE_MARKERS "/mapping/cone_markers" // visualization_msgs/msg/MarkerArray
 
 // SLAM
-#define TOPIC_MAP_MARKERS"/slam/map/markers"
+#define TOPIC_MAP_MARKERS "/slam/map/markers"
 #define TOPIC_MAP "/slam/map"
 #define TOPIC_SLAM_POSE "/slam/pose"
 #define TOPIC_POSE_MARKER "/slam/pose_marker"
