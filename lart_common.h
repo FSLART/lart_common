@@ -51,7 +51,7 @@
 #ifdef __LART_T26__
 
 // Transmission ratio
-#define TRANSMISSION_RATIO 4.0f
+#define TRANSMISSION_RATIO 14.73f
 
 #endif
 
