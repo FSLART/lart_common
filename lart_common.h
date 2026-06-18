@@ -21,9 +21,6 @@
 // The maximum steering wheel angle in degrees
 #define MAX_STEERING_ANGLE_DEG 105 //TBD
 
-// The maximum steering wheel angle in radians
-#define MAX_STEERING_ANGLE_RAD (DEG_TO_RAD(MAX_STEERING_ANGLE_DEG))
-
 // The maximum wheel angle the car is able to do in autonomous mode
 #define MAX_WHEEL_ANGLE_RAD (DEG_TO_RAD(24))
 
