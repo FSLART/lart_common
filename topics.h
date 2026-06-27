@@ -1,5 +1,5 @@
 // Perception
-#define TOPIC_ZED_LEFT_IMAGE_COMPRESSED "/zed/left/image_raw/compressed" // sensor_msgs/msg/CompressedImage
+#define TOPIC_ZED_LEFT_IMAGE_COMPRESSED "/zed/left/image_raw/" // sensor_msgs/msg/CompressedImage
 #define TOPIC_ZED_LEFT_CAMERA_INFO "/zed/left/camera_info" // sensor_msgs/msg/CameraInfo
 #define TOPIC_ZED_DEPTH_IMAGE "/zed/depth/image_raw" // sensor_msgs/msg/Image
 #define TOPIC_ZED_DEPTH_CAMERA_INFO "/zed/depth/camera_info" // sensor_msgs/msg/CameraInfo
@@ -17,10 +17,10 @@
 #define TOPIC_PATH_MARKER "/path/markers"
 
 // Control
-#define TOPIC_CONTROl_FEEDBACK "/control/feedback" // lart_msgs/msg/Dynamics
+#define TOPIC_CONTROL_FEEDBACK "/control/feedback" // lart_msgs/msg/Dynamics
 #define TOPIC_CONTROL_RPM_TARGET "/control/rpm_target" // /pc_origin/dynamics
 #define TOPIC_CONTROL_TORQUE_TARGET "/control/torque_target" // /pc_origin/dynamics
-#define TOPIC_TARGET_MARKER "/target/marker"
+#define TOPIC_TARGET_MARKER "/control/target/marker"
 
 // System
 #define TOPIC_STATE_ACU "/state/acu"
@@ -40,6 +40,7 @@
 #define TOPIC_DV_DYNAMICS2 "/dv/dynamics2"
 #define TOPIC_CUBEMARS_POSITION_LOOP "/cubemars/position_loop"
 #define TOPIC_VCU_TORQUE_TARGET "/vcu/torque_target"
+#define TOPIC_VCU_RPM_TARGET "/vcu/rpm_target"
 
 #define TOPIC_CAR_STATUS "/status"
 

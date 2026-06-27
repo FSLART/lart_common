@@ -15,11 +15,8 @@
 // The wheelbase in meters
 #define WHEELBASE_M 1.550f
 
-// Ratio between steering wheel angle and steering angle
-#define STEERING_RATIO 4.57
-
 // The maximum steering wheel angle in degrees
-#define MAX_STEERING_ANGLE_DEG 105 //TBD
+#define MAX_STEERING_ANGLE_DEG 95 //TBD
 
 // The maximum wheel angle the car is able to do in autonomous mode
 #define MAX_WHEEL_ANGLE_RAD (DEG_TO_RAD(24))
@@ -60,6 +57,14 @@
 
 #define MS_TO_KMH(ms) (ms * 3.6)
 #define KMH_TO_MS(kmh) (kmh / 3.6)
+
+//Laps
+// #define LAPS_ACCELERATION 1
+// #define LAPS_SKIDPAD 2
+// #define LAPS_TRACKDRIVE 10 //according to D8.3.1 from rule book
+// #define LAPS_EBS_TEST 1 // if needed, not implemented for now
+// #define LAPS_AUTOCROSS 1 // according to D6.4.2 from rule book
+// #define LAPS_INSPECTION 1
 
 // Cone types
 #define CONE_UNKNOWN_TYPE 0
