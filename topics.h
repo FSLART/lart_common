@@ -61,5 +61,5 @@
 #define SERVICE_STEERING_TIMESTAMP "/steering/last_timestamp"
 #define SERVICE_ZED_TIMESTAMP "/zed/last_timestamp"
 
-#define SERVICE_START_BAG_RECORDING "/start_recording"
-#define SERVICE_STOP_BAG_RECORDING "/stop_recording"
+#define SERVICE_START_BAG_RECORDING "/rosbag2_recorder/resume"
+#define SERVICE_STOP_BAG_RECORDING "/rosbag2_recorder/stop"
