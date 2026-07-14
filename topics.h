@@ -1,10 +1,11 @@
 // Perception
-#define TOPIC_ZED_LEFT_IMAGE_COMPRESSED "/zed/left/image_raw/" // sensor_msgs/msg/CompressedImage
+#define TOPIC_ZED_LEFT_IMAGE_COMPRESSED "/zed/left/image_raw" // sensor_msgs/msg/CompressedImage
 #define TOPIC_ZED_LEFT_CAMERA_INFO "/zed/left/camera_info" // sensor_msgs/msg/CameraInfo
 #define TOPIC_ZED_DEPTH_IMAGE "/zed/depth/image_raw" // sensor_msgs/msg/Image
 #define TOPIC_ZED_DEPTH_CAMERA_INFO "/zed/depth/camera_info" // sensor_msgs/msg/CameraInfo
 #define TOPIC_CONES "/mapping/cones" // lart_msgs/msg/ConeArray
 #define TOPIC_CONE_MARKERS "/mapping/cone_markers" // visualization_msgs/msg/MarkerArray
+#define TOPIC_ANNOTATIONS "/zed/image_annotations" // foxglove_msgs/msg/ImageAnnotations
 
 // SLAM
 #define TOPIC_MAP_MARKERS "/slam/map/markers"
