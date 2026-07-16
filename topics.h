@@ -16,6 +16,8 @@
 // Planning
 #define TOPIC_PATH "/path"
 #define TOPIC_PATH_MARKER "/path/markers"
+#define TOPIC_FINAL_PATH "/full_planner/path"
+#define TOPIC_FINAL_PATH_MARKER "/full_planner/path/markers"
 
 // Control
 #define TOPIC_CONTROL_FEEDBACK "/control/feedback" // lart_msgs/msg/Dynamics
